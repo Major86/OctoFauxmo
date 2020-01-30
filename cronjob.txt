@@ -1,0 +1,4 @@
+#Run the printer stop script ASAP to prevent powering the LCD
+@reboot ~/scripts/powerPrinter stop
+#Start the device emulation, redirect to log, and disown
+@reboot nodejs ~/testrepo1/octoFauxmo.js > ~/testrepo1/log.log 2>&1 &

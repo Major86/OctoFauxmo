@@ -1,0 +1,26 @@
+#!/bin/bash
+# Start / stop streamer daemon
+
+case "$1" in
+    start)
+	#start the main power
+        /home/pi/scripts/powerPrinter.py start
+	#start the usb power
+        echo '1-1' | sudo tee /sys/bus/usb/drivers/usb/bind
+        echo "$0: started"
+	exit 0
+        ;;
+    stop)
+	#stop the usb power first to prevent 
+	#powing the board and LCD from the Pi
+	echo '1-1' | sudo tee /sys/bus/usb/drivers/usb/unbind
+	#stop the main power by turning off the relay
+        /home/pi/scripts/powerPrinter.py stop
+        echo "$0: stopped"
+	exit 0
+        ;;
+    *)
+        echo "Usage: $0 {start|stop}" >&2
+	exit 1
+        ;;
+esac
