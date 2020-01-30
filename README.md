@@ -3,6 +3,8 @@ Summary
 
 This write up is meant to serve as a companion to the Thingiverse writeup explaining how to integrate your smart home controller with Octoprint and control basic functions on your printer. 
 
+https://www.thingiverse.com/thing:4080850
+
 This writup assumes you have followed the standard Octoprint install guide and are running as the pi user. 
 
 Power Scripts
